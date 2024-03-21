@@ -118,7 +118,7 @@ class LoginView extends GetView<LoginController> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.transparent,
+                            backgroundColor: Colors.transparent,
                             elevation: 0,
                           ),
                         ),
