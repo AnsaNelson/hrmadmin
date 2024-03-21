@@ -1,0 +1,27 @@
+name: hrmadmin
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.6
+  email_validator: ^2.1.17
+  motion_toast: ^2.8.0
+  image_picker: ^1.0.7
+  fluttertoast: ^8.2.4
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  assets: 
+    - asset/image/
+  uses-material-design: true
+
