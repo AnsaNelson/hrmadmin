@@ -1,6 +1,10 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hrmadmin/app/modules/Login/views/login_view.dart';
+import 'package:hrmadmin/app/modules/home/views/home_view.dart';
+import 'package:hrmadmin/app/networks/dio/repo/models/req/register_req.dart';
+import 'package:hrmadmin/app/networks/dio/repo/repo/authRepo.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class RegisterController extends GetxController {
@@ -24,29 +28,20 @@ class RegisterController extends GetxController {
   void onClose() {
     super.onClose();
   }
- void register(BuildContext context) {
-    String name=nameController.text.trim();
-    String email = emailController.text.trim();
-    String password = passwordController.text.trim();
-if(name.isEmpty){
-MotionToast.warning(
-        title: Text("Enter Name"),
-        description: Text("Please enter name"),
-      ).show(context);
-}
-    else if (email.isEmpty || !EmailValidator.validate(email)) {
-      MotionToast.warning(
-        title: Text("Enter Correct Email"),
-        description: Text("Please enter a valid email address."),
-      ).show(context);
-    } else if (password.isEmpty || password.length < 6 || !password.contains(RegExp(r'[A-Z]'))) {
-      MotionToast.warning(
-        title: Text("Enter Correct password"),
-        description: Text("Please enter at least more than 6 characters and also enter special characters."),
-      ).show(context);
+
+  onRegisterClick() async {
+    final AuthRepo repo = AuthRepo();
+
+    final response = await repo.register(RegisterReq(
+      name: nameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+    ));
+
+    if (response != null && response.token != null) {
+      Get.to(LoginView());
     } else {
-      // Your login logic here
-      Get.toNamed('/home');
+      print(response!.error);
     }
   }
 }
