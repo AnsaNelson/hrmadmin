@@ -8,7 +8,7 @@ import 'package:hrmadmin/app/networks/dio/repo/repo/authRepo.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class RegisterController extends GetxController {
-  final GlobalKey<FormState> formKeys = GlobalKey<FormState>();
+ 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
