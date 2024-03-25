@@ -7,6 +7,7 @@ class WorkassignView extends GetView<WorkassignController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(WorkassignController());
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('Client Form')),

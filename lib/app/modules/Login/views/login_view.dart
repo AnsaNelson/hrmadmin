@@ -114,48 +114,6 @@ class LoginView extends GetView<LoginController> {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(left: 150),
-                //   child: Row(
-                //     children: [
-                //       Container(
-                //         height: 50,
-                //         width: 100,
-                //         decoration: BoxDecoration(
-                //           borderRadius: BorderRadius.circular(10),
-                //           gradient: LinearGradient(
-                //             colors: [
-                //               Color.fromRGBO(143, 148, 251, 1),
-                //               Color.fromRGBO(143, 148, 251, .6),
-                //             ],
-                //           ),
-                //         ),
-                //         child: ElevatedButton(
-                //           onPressed: () => controller.login(context),
-                //           child: Text(
-                //             "Login",
-                //             style: TextStyle(
-                //               color: Colors.white,
-                //               fontWeight: FontWeight.bold,
-                //             ),
-                //           ),
-                //           style: ElevatedButton.styleFrom(
-                //             backgroundColor: Colors.transparent,
-                //             elevation: 0,
-                //           ),
-                //         ),
-                //       ),
-                //       Padding(
-                //         padding: const EdgeInsets.only(bottom: 50,),
-                //         child: TextButton(onPressed: (){
-                //           Get.to(()=>const RegisterView());
-                //         } ,child: Text("Register Now",style: TextStyle(fontWeight: FontWeight.bold),)),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                
-                // SizedBox(height: 20),
                 
               ],
             ),
