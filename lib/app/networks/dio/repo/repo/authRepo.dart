@@ -34,4 +34,6 @@ class AuthRepo {
       return RegisterRes(error: "Unexpected Error");
     }
   }
+
+  
 }
