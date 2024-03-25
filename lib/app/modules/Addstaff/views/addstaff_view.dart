@@ -105,6 +105,25 @@ class AddstaffView extends GetView<AddstaffController> {
                           ),
                         ),
                       ),
+                        SizedBox(height: 16),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: TextFormField(
+                          controller: controller.jobController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter department';
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            icon: Icon(Icons.home),
+                            hintText: 'Where do you live?',
+                            labelText: 'Department*',
+                          ),
+                        ),
+                      ),
                       SizedBox(height: 16),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,

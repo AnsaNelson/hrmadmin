@@ -37,6 +37,7 @@ class AuthRepo {
     }
   }
 
+
   Future<LoginRes?> login(LoginReq loginReq)async{
     try {
       final response = await dioClient.mainReqRes(
@@ -64,5 +65,6 @@ if(response.statusCode==200){
       return LoginRes(error: "Unexpected Error");
     }
   }
+
 
 }

@@ -29,7 +29,9 @@ class RegisterView extends GetView<RegisterController> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
-                      hintText: "Name"),
+                      hintText: "Name",
+                      errorText: controller.errorText,
+                      ),
                 ),
               ),
               SizedBox(
@@ -42,7 +44,10 @@ class RegisterView extends GetView<RegisterController> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
-                      hintText: "Email"),
+                      hintText: "Email",
+                      errorText: controller.errorText1
+                      
+                      ),
                 ),
               ),
               SizedBox(
@@ -55,7 +60,8 @@ class RegisterView extends GetView<RegisterController> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
-                      hintText: "password"),
+                      hintText: "password",
+                      errorText: controller.errorText2),
                 ),
               ),
               Container(
@@ -71,7 +77,8 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                 ),
                 child: ElevatedButton(
-                  onPressed: () => controller.onRegisterClick(),
+                  onPressed: () =>
+                  controller.onRegisterClick(),
                   child: Text(
                     "Submit",
                     style: TextStyle(

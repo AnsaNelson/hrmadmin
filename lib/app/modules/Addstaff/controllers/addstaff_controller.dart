@@ -11,6 +11,7 @@ class AddstaffController extends GetxController {
   final TextEditingController nameController=TextEditingController();
   final TextEditingController addressController=TextEditingController();
   final TextEditingController passwordController=TextEditingController();
+  final TextEditingController jobController=TextEditingController();
   final TextEditingController dobController=TextEditingController();
   final TextEditingController phoneNumberController=TextEditingController();
   final TextEditingController jodController=TextEditingController();
@@ -41,6 +42,7 @@ class AddstaffController extends GetxController {
     String password =passwordController.text.trim();
     String address=addressController.text.trim();
     String  Joining=jodController.text.trim();
+    String  job=jobController.text.trim();
     String dob=dobController.text.trim();
     String salary=salaryController.text.trim();
     String phone=phoneNumberController.text.trim();
@@ -93,7 +95,15 @@ MotionToast.warning(
      
     ).show(context);
     
-  }else{
+  }else if(job.isEmpty){
+    MotionToast.warning(
+        title: Text("Enter Department"),
+         description: Text("Please enter Department"),
+     
+    ).show(context);
+    
+  }
+  else{
      MotionToast.warning(
         title: Text("Submitted"),
          description: Text("Sucessfully Submited."),

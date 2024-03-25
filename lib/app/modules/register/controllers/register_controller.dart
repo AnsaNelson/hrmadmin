@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -44,4 +46,38 @@ class RegisterController extends GetxController {
       print(response!.error);
     }
   }
+  String? get errorText {
+  
+  final text = nameController.value.text;
+ 
+  if (text.isEmpty) {
+    return 'Can\'t be empty';
+  }
+  if (text.length < 4) {
+    return 'Too short';
+  }
+  return null;
+}
+String? get errorText1 {
+  
+  final emailtext = nameController.value.text;
+ 
+  if (emailtext.isEmpty) {
+    return 'Can\'t be empty';
+  }
+  return null;
+}
+String? get errorText2{
+  
+  final passwordtext = passwordController.value.text;
+ 
+  if (passwordtext.isEmpty) {
+    return 'Can\'t be empty';
+  }
+  if(passwordtext.length <= 6){
+    return 'password atleast more than 6 character';
+  }
+  return null;
+}
+
 }
