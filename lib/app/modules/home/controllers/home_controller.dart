@@ -1,5 +1,6 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:hrmadmin/app/networks/dio/repo/models/req/addstaff_req.dart';
 
 class HomeController extends GetxController {
  RxList<Staff> staffList = <Staff>[
@@ -38,4 +39,6 @@ class Staff {
   final String photoUrl;
 
   Staff(this.name, this.photoUrl);
+
+  addstaff(AddStaffReq addStaffReq) {}
 }

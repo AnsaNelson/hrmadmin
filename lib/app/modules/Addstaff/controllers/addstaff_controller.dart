@@ -1,10 +1,11 @@
 import 'dart:io';
-
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hrmadmin/app/modules/home/views/home_view.dart';
+import 'package:hrmadmin/app/networks/dio/repo/models/req/addstaff_req.dart';
+import 'package:hrmadmin/app/networks/dio/repo/repo/staff.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:motion_toast/motion_toast.dart';
+
 
 class AddstaffController extends GetxController {
  final TextEditingController emailController=TextEditingController();
@@ -16,7 +17,6 @@ class AddstaffController extends GetxController {
   final TextEditingController phoneNumberController=TextEditingController();
   final TextEditingController jodController=TextEditingController();
   final TextEditingController salaryController=TextEditingController();
-  GlobalKey<FormState>signupFormKey=GlobalKey<FormState>();
   final ImagePicker _picker = ImagePicker();
   File? imageFile;
 
@@ -36,89 +36,26 @@ class AddstaffController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
-  void Signup(BuildContext context) {
-    String email = emailController.text.trim();
-    String password =passwordController.text.trim();
-    String address=addressController.text.trim();
-    String  Joining=jodController.text.trim();
-    String  job=jobController.text.trim();
-    String dob=dobController.text.trim();
-    String salary=salaryController.text.trim();
-    String phone=phoneNumberController.text.trim();
- if (email.isEmpty || !EmailValidator.validate(email)) {
-      MotionToast.warning(
-        title: Text("Enter Correct Email"),
-        description: Text("Please enter a valid email address."),
-      ).show(context);
-  }
-  else if(password.isEmpty||password.length<6||!password.contains(RegExp(r'[A-Z]'))){
-MotionToast.warning(
-        title: Text("Enter Correct password"),
-        description: Text("Please enter atleast more than 6 characters and also enter special characters."),
-     
-
-      ).show(context);
-
-  }else if(address.isEmpty){
-    MotionToast.warning(
-        title: Text("Enter Correct password"),
-         description: Text("Please enter address."),
-     
-    ).show(context);
-  }else if(dob.isEmpty||!dob.contains(RegExp(r'^\d{4}-\d{2}-\d{2}$'))){
-    MotionToast.warning(
-        title: Text("Enter Correct Date of Birth"),
-         description: Text("Please enter valid date of birth."),
-     
-    ).show(context);
-
-  }else if(Joining.isEmpty||!Joining.contains(RegExp(r'^\d{4}-\d{2}-\d{2}$'))){
-    MotionToast.warning(
-        title: Text("Enter valid Joining date"),
-         description: Text("Please enter valid Joining date(yyyy-mm-dd)."),
-     
-    ).show(context);
-    
-  }
-  else if(phone.isEmpty||!phone.contains(RegExp(r'^\d{10}$'))){
-    MotionToast.warning(
-        title: Text("Enter valid Phone Number"),
-         description: Text("Please enter valid Phone Number(yyyy-mm-dd)."),
-     
-    ).show(context);
-    
-  }else if(salary.isEmpty){
-    MotionToast.warning(
-        title: Text("Enter valid Salary"),
-         description: Text("Please enter Salary."),
-     
-    ).show(context);
-    
-  }else if(job.isEmpty){
-    MotionToast.warning(
-        title: Text("Enter Department"),
-         description: Text("Please enter Department"),
-     
-    ).show(context);
-    
-  }
-  else{
-     MotionToast.warning(
-        title: Text("Submitted"),
-         description: Text("Sucessfully Submited."),
-     
-    ).show(context);
-
-  }
-  }
-  Future<void> pickImage() async {
-    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      imageFile = File(pickedFile.path);
-      update(); // Refresh the UI to display the selected image
+  onClickAddStaff()async{ 
+    final Staff repo = Staff();
+    final response = await repo.addStaff(AddStaffReq(
+      email: emailController.text,
+      name: nameController.text,
+      address: addressController.text,
+      password: passwordController.text,
+      department: jobController.text,
+      dateofbirth: dobController.text,
+      phone: phoneNumberController.text,
+      joiningdate: jodController.text,
+      salary: salaryController.text,
+      image: ''));
+    if(response!.error == null && response.token != null){
+        Get.snackbar("Success", "Staff Added Successfully");
+      Get.off(HomeView());
+    }else{
+      Get.snackbar("Error", response.error!);
     }
   }
 
-   
+
 }

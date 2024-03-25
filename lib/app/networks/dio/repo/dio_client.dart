@@ -3,9 +3,7 @@ import 'package:get/get.dart' as G;
 import 'package:hrmadmin/app/data/url.dart';
 import 'package:hrmadmin/app/networks/dio/repo/endpoints.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-// import 'package:speedy_feast/app/data/constants/constants.dart';
-// import 'package:speedy_feast/app/networks/dio/endpoints.dart';
-// import 'package:speedy_feast/app/networks/models/user_token_error.dart';
+
 
 class DioClient {
   final Dio _dio;
@@ -31,11 +29,7 @@ class DioClient {
     if (headers != null) {
       _dio.options.headers.addAll(headers);
     }
-    // if (endPoints.hasToken()) {
-    //   String? _token = G.Get.find<UserTokenError>().token;
-    //   _dio.options.headers
-    //       .addAll({"Authorization": "Bearer ${_token ?? "No Token"}"});
-    // }
+    
     try {
       switch (endPoints.type()) {
         case ReqType.GET:

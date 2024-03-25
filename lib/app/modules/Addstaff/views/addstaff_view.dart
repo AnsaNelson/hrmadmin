@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/addstaff_controller.dart';
@@ -20,12 +19,12 @@ class AddstaffView extends GetView<AddstaffController> {
           child: Center(
             child: Column(
               children: [
-                Form(
-                  key: controller.signupFormKey,
-                  child: Column(
+                
+               Column(
                     children: [
                       GestureDetector(
-                        onTap: () => controller.pickImage(),
+                        onTap: () {},
+                        // => controller.pickImage(),
                         child: Container(
                           width:MediaQuery.of(context).size.width/2,
                           height: 120,
@@ -118,8 +117,8 @@ class AddstaffView extends GetView<AddstaffController> {
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            icon: Icon(Icons.home),
-                            hintText: 'Where do you live?',
+                            icon: Icon(Icons.work),
+                            hintText: 'Enter your designation',
                             labelText: 'Department*',
                           ),
                         ),
@@ -222,7 +221,9 @@ class AddstaffView extends GetView<AddstaffController> {
                       ),
                       SizedBox(height: 24),
                       InkWell(
-                        onTap: () => controller.Signup(context),
+                        onTap: () {
+
+                        },
                         child: Container(
                           width: MediaQuery.of(context).size.width / 3,
                           padding: EdgeInsets.symmetric(vertical: 16),
@@ -235,6 +236,8 @@ class AddstaffView extends GetView<AddstaffController> {
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
+                          child: ElevatedButton(
+                         onPressed: () => controller.onClickAddStaff(),
                           child: Center(
                             child: Text(
                               'Submit',
@@ -246,9 +249,10 @@ class AddstaffView extends GetView<AddstaffController> {
                           ),
                         ),
                       ),
+                      ),
                     ],
                   ),
-                ),
+                
               ],
             ),
           ),

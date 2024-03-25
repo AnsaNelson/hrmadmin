@@ -10,6 +10,7 @@ class WorkdetailsView extends GetView<WorkdetailsController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(WorkdetailsController());
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
