@@ -242,7 +242,7 @@ class AddstaffView extends GetView<AddstaffController> {
                             child: Text(
                               'Submit',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Color.fromRGBO(143, 148, 251, .6),
                                 fontSize: 16,
                               ),
                             ),
