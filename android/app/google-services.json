@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "710172931809",
+    "project_id": "hrm-digicue",
+    "storage_bucket": "hrm-digicue.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710172931809:android:490717a3cc45625a6429a0",
+        "android_client_info": {
+          "package_name": "com.example.hrmadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi1h4dBot9zdn3nKztVpbnq01BhhvWxw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
