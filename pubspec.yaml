@@ -17,6 +17,8 @@ dependencies:
 
   flutter: 
     sdk: flutter
+  firebase_storage: ^11.6.10
+  firebase_core: ^2.27.1
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
