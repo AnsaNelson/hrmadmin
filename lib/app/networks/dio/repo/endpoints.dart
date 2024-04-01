@@ -1,3 +1,4 @@
+
 import 'package:hrmadmin/app/networks/dio/repo/dio_client.dart';
 
 enum EndPoints {
@@ -16,6 +17,7 @@ extension EndPointData on EndPoints {
         path ="api/admin/login";
       case EndPoints.addstaff:
         path = "api/admin/user/register";
+        break;
     }
     return path;
   }
@@ -25,10 +27,13 @@ extension EndPointData on EndPoints {
     switch (this) {
       case EndPoints.register:
         type = ReqType.POST;
+        break;
       case EndPoints.login:
         type = ReqType.POST;
+        break;
       case EndPoints.addstaff:
         type = ReqType.POST;
+        break;
     }
     return type;
   }

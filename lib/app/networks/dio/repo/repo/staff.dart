@@ -10,7 +10,7 @@ class Staff {
    Future<AddStaffRes?> addStaff(AddStaffReq addStaffReq) async {
     try {
       final response = await dioClient.mainReqRes(
-        endPoints: EndPoints.register,
+        endPoints: EndPoints.addstaff,
         data: addStaffReq.toJson(),
       );
       if (response.statusCode == 200) {

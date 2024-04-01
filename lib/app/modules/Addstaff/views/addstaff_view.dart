@@ -23,8 +23,9 @@ class AddstaffView extends GetView<AddstaffController> {
                Column(
                     children: [
                       GestureDetector(
-                        onTap: () {},
-                        // => controller.pickImage(),
+                        onTap: ()  {controller.pickImage();
+                        controller.uploadImageToFirebase();
+                        },
                         child: Container(
                           width:MediaQuery.of(context).size.width/2,
                           height: 120,
