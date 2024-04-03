@@ -23,8 +23,9 @@ class AddstaffView extends GetView<AddstaffController> {
                Column(
                     children: [
                       GestureDetector(
-                        onTap: () {},
-                        // => controller.pickImage(),
+                        onTap: ()  {controller.pickImage();
+                        controller.uploadImageToFirebase();
+                        },
                         child: Container(
                           width:MediaQuery.of(context).size.width/2,
                           height: 120,
@@ -242,7 +243,7 @@ class AddstaffView extends GetView<AddstaffController> {
                             child: Text(
                               'Submit',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Color.fromRGBO(143, 148, 251, .6),
                                 fontSize: 16,
                               ),
                             ),
