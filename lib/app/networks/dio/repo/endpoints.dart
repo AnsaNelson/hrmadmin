@@ -5,6 +5,7 @@ enum EndPoints {
   register,
   login,
   addstaff,
+  workdetails,
 }
 
 extension EndPointData on EndPoints {
@@ -17,6 +18,8 @@ extension EndPointData on EndPoints {
         path ="api/admin/login";
       case EndPoints.addstaff:
         path = "api/admin/user/register";
+      case EndPoints.workdetails:
+        path = "/api/admin/allclients";
         break;
     }
     return path;
@@ -34,6 +37,9 @@ extension EndPointData on EndPoints {
       case EndPoints.addstaff:
         type = ReqType.POST;
         break;
+      case EndPoints.workdetails:
+        type = ReqType.GET;
+        break;
     }
     return type;
   }
@@ -49,6 +55,9 @@ extension EndPointData on EndPoints {
         break;
       case EndPoints.addstaff:
         hasToken = false;
+        break;
+      case EndPoints.workdetails:
+        hasToken = true;
         break;
     }
     return hasToken;

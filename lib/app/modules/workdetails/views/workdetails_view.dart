@@ -9,10 +9,11 @@ class WorkdetailsView extends GetView<WorkdetailsController> {
   const WorkdetailsView({Key? key}) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     Get.put(WorkdetailsController());
     double width = MediaQuery.of(context).size.width;
-
+     final department = Get.arguments;
     return Scaffold(
       backgroundColor: LightColors.kLightYellow,
       body: SafeArea(
@@ -85,31 +86,34 @@ class WorkdetailsView extends GetView<WorkdetailsController> {
             ),
             SizedBox(height: 10,),
             Expanded(
-              child:  ListView.builder(
-        itemCount: controller.client.length,
-        itemBuilder: (context, index) {
-       return Container(
-        height: 80,
-        width: 30,
-         child: Card(
-          child: Column(
-            children: [
-         ListTile(
-          title: Text(controller.client[index].name),
-          subtitle: Text(controller.client[index].work),
-          trailing: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-            height: 60,
-            width: 60,
-            child: Center(child: Text(controller.client[index].status)),
-          ),            
-         )
-            // Center(child: Text(controller.clientList[index].name))
-          ]
-          ,) 
-          ),
-       );
-      })
+              child: Obx(() => ListView.builder(
+                    itemCount: controller.works.length,
+                    itemBuilder: (context, index) {
+                      final work = controller.works[index];
+                      return Container(
+                        height: 80,
+                        width: 30,
+                        child: Card(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(work.name ?? ''),
+                                subtitle: Text(work.description ?? ''),
+                                trailing: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  height: 60,
+                                  width: 60,
+                                  child: Center(child: Text(work.status ?? '')),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  )),
             ),
           ],
         ),
@@ -117,3 +121,36 @@ class WorkdetailsView extends GetView<WorkdetailsController> {
     );
   }
 }
+      //       Expanded(
+      //         child:  ListView.builder(
+      //   itemCount: controller.client.length,
+      //   itemBuilder: (context, index) {
+      //  return Container(
+      //   height: 80,
+      //   width: 30,
+      //    child: Card(
+      //     child: Column(
+      //       children: [
+      //    ListTile(
+      //     title: Text(controller.client[index].name),
+      //     subtitle: Text(controller.client[index].work),
+      //     trailing: Container(
+      //       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      //       height: 60,
+      //       width: 60,
+      //       child: Center(child: Text(controller.client[index].status)),
+      //     ),            
+      //    )
+      //       // Center(child: Text(controller.clientList[index].name))
+      //     ]
+      //     ,) 
+      //     ),
+      //  );
+      // })
+      //       ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
