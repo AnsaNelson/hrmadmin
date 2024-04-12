@@ -107,7 +107,7 @@ class AddstaffView extends GetView<AddstaffController> {
                       ),
                     ),
                     SizedBox(height: 16),
-              
+
                     Container(
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: Row(
@@ -257,65 +257,39 @@ class AddstaffView extends GetView<AddstaffController> {
                       ),
                     ),
                     SizedBox(height: 24),
-                    // InkWell(
-                    //   onTap: () {},
-                    //   child: Container(
-                    //     width: MediaQuery.of(context).size.width / 3,
-                    //     padding: EdgeInsets.symmetric(vertical: 16),
-                    //     decoration: BoxDecoration(
-                    //       gradient: LinearGradient(
-                    //         colors: [
-                    //           Color.fromRGBO(143, 148, 251, 1),
-                    //           Color.fromRGBO(143, 148, 251, .6),
-                    //         ],
-                    //       ),
-                    //       borderRadius: BorderRadius.circular(8),
-                    //     ),
-                    //     child: 
-                    //       ElevatedButton(
-                    //       onPressed: () => controller.onClickAddStaff(),
-                    //       child: Center(
-                    //         child: Text(
-                    //           'Submit',
-                    //           style: TextStyle(
-                    //             color: Color.fromRGBO(143, 148, 251, .6),
-                    //             fontSize: 16,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),     
-                    //   ),
-                    // ),
                     InkWell(
-  onTap: () {},
-  child: Container(
-    width: MediaQuery.of(context).size.width / 3,
-    padding: EdgeInsets.symmetric(vertical: 16),
-    decoration: BoxDecoration(
-      color: Colors.white ,// Set the same color as the background
-      borderRadius: BorderRadius.circular(8),
-    ),
-    child: ElevatedButton(
-      onPressed: () => controller.onClickAddStaff(),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromARGB(255, 181, 143, 187), // Background color
-        elevation: 3, // Elevation shadow
-        padding: EdgeInsets.symmetric(vertical: 16), // Button padding
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8), // Button border radius
-        ),
-      ),
-      child: Text(
-        'Submit',
-        style: TextStyle(
-          color: Colors.white, // Text color
-          fontSize: 16,
-        ),
-      ),
-    ),
-  ),
-),
-
+                      onTap: () {},
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 3,
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                          color: Colors
+                              .white, // Set the same color as the background
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () => controller.onClickAddStaff(),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(
+                                255, 181, 143, 187), // Background color
+                            elevation: 3, // Elevation shadow
+                            padding: EdgeInsets.symmetric(
+                                vertical: 16), // Button padding
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  8), // Button border radius
+                            ),
+                          ),
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(
+                              color: Colors.white, // Text color
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

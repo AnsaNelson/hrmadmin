@@ -19,7 +19,7 @@ extension EndPointData on EndPoints {
       case EndPoints.addstaff:
         path = "api/admin/user/register";
       case EndPoints.workdetails:
-        path = "api/admin/workdetails";
+        path = "/api/admin/allclients";
         break;
     }
     return path;
